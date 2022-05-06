@@ -42,38 +42,56 @@ Using the Machine learning process:
     
 ### Process and Results:
 #####     •	 Data Pre-processing:
-             
-             o	Determine what variable is the targeted result for the model.
-                        We want to determine if a funded project will be successful or not, so the IS_SUCCESSFUL column will be the target variable.
-             o	Determine what variable should be kept as features for the model.
-                        It was determined that all non- Identification columns were independent variables that could help predict our desired target.
-             o	Determine what variables should be removed.
-                        Removed the identification columns: (EIN & Name)
+            
+o		Determine what variable is the targeted result for the model.
+
+We want to determine if a funded project will be successful or not, so the IS_SUCCESSFUL column will be the target variable
+			
+o		Determine what variable should be kept as features for the model.
+
+It was determined that all non- Identification columns were independent variables that could help predict our desired target.
+			
+o		Determine what variables should be removed.
+
+Removed the identification columns: (EIN & Name)
                     
 ####      •	Develop, Compiling, Training, and Evaluating the Model:
               
-              o	Creating the neural network, number of Neuron layers and activation functions:
-                      The following were given in the challenge for use in the original model:
+o		Creating the neural network, number of Neuron layers and activation functions:
+ 
+The following were given in the challenge for use in the original model:
+		      
                           2 hidden layers, with 80 and 30 neurons respectively
+			  
                           1 output layer
+			  
                           2 different activation functions, relu and sigmoid
-                      To optimize the model and try to improve its accuracy various changes were tried, changing the neuron splits, changing the number of hidden layers, and using different activation functions. The following seemed to be the best for efficiency, yet it still did not have the required accuracy level:
+			  
+To optimize the model and try to improve its accuracy various changes were tried, changing the neuron splits, changing the number of hidden layers, and using different activation functions. The following seemed to be the best for efficiency, yet it still did not have the required accuracy level:
+		      
                           3 hidden layers, with 100, 50, and 20 neurons respectively
+			  
                           1 output layer
+			  
                           3 different types of activation functions, relu, tanh, and sigmoid
                           
-              o	Achieving accuracy levels greater than the required 75%
-                       The model was successful in meeting the required accuracy rates of greater than 75%. Ultimately, its accuracy was around 80%
+ o	Achieving accuracy levels greater than the required 75%
+  
+The model was successful in meeting the required accuracy rates of greater than 75%. Ultimately, its accuracy was around 80%
                        
 (Below is the results of the Optimized code)
 
 ![image](https://user-images.githubusercontent.com/95320265/167194430-291b3642-ca99-47ac-931a-a4072df9fcf7.png)
 
-              o	What steps did you take to try and increase model performance?
-                      Several changes to the model were tried by “trial and error” to achieve the required accuracy level:
-                            First, in the optimization process the number of hidden layers and neuron splits were changed and different activation functions were tried with minimal effect on the accuracy.
-                            Second, the bucketing of data was reviewed and modified to see if that would have an impact on the resulting accuracy. Originally the INCOME_AMT was “binned” into nine buckets. That was changed to just two buckets, yes it had income, or no it did not have income, this had little effect on the accuracy.
-                            Finally, in reviewing all the data provided to see if there could be something else that would impact the results of the model. It was determined that several organizations had multiple funding request for different projects, so if previous projects from this organization were successful it would be a good indicator that any future project would also be successful. So, the names of the requesting organizations were added back into the model and binned into those with one application verses those with more than one. This final change to the model allowed it to achieve the required accuracy levels.
+  o	What steps did you take to try and increase model performance?
+  
+  Several changes to the model were tried by “trial and error” to achieve the required accuracy level:
+		      
+First, in the optimization process the number of hidden layers and neuron splits were changed and different activation functions were tried with minimal effect on the accuracy.
+				         
+Second, the bucketing of data was reviewed and modified to see if that would have an impact on the resulting accuracy. Originally the INCOME_AMT was “binned” into nine buckets. That was changed to just two buckets, yes it had income, or no it did not have income, this had little effect on the accuracy.
+	       
+Finally, in reviewing all the data provided to see if there could be something else that would impact the results of the model. It was determined that several organizations had multiple funding request for different projects, so if previous projects from this organization were successful it would be a good indicator that any future project would also be successful. So, the names of the requesting organizations were added back into the model and binned into those with one application verses those with more than one. This final change to the model allowed it to achieve the required accuracy levels.
                             
                             
 ### Challenge - Summary
